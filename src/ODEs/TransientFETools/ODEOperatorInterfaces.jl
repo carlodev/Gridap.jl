@@ -26,12 +26,15 @@ end
 
 function allocate_cache(op::ODEOpFromFEOp,v::AbstractVector)
   ode_cache = allocate_cache(op)
-  (v, ode_cache)
+  _v = similar(v)
+  (_v, ode_cache)
 end
 
 function allocate_cache(op::ODEOpFromFEOp,v::AbstractVector,a::AbstractVector)
   ode_cache = allocate_cache(op)
-  (v,a, ode_cache)
+  _v = similar(v)
+  _a = similar(a)
+  (_v,_a, ode_cache)
 end
 
 function update_cache!(ode_cache,op::ODEOpFromFEOp,t::Real)
@@ -44,16 +47,16 @@ function update_cache!(ode_cache,op::ODEOpFromFEOp,t::Real)
   (Us,Uts,fecache)
 end
 
-function allocate_residual(op::ODEOpFromFEOp,uhF::AbstractVector,ode_cache)
+function allocate_residual(op::ODEOpFromFEOp,t0::Real,uhF::AbstractVector,ode_cache)
   Us,Uts,fecache = ode_cache
   uh = EvaluationFunction(Us[1],uhF)
-  allocate_residual(op.feop,uh,fecache)
+  allocate_residual(op.feop,t0,uh,fecache)
 end
 
-function allocate_jacobian(op::ODEOpFromFEOp,uhF::AbstractVector,ode_cache)
+function allocate_jacobian(op::ODEOpFromFEOp,t0::Real,uhF::AbstractVector,ode_cache)
   Us,Uts,fecache = ode_cache
   uh = EvaluationFunction(Us[1],uhF)
-  allocate_jacobian(op.feop,uh,fecache)
+  allocate_jacobian(op.feop,t0,uh,fecache)
 end
 
 """

@@ -63,7 +63,7 @@ pkg> add Gridap
 - [GridapDistributed](https://github.com/gridap/GridapDistributed.jl) Distributed-memory extension of Gridap.
 - [GridapEmbedded](https://github.com/gridap/GridapEmbedded.jl) Embedded finite elements in Julia.
 - [GridapGmsh](https://github.com/gridap/GridapGmsh.jl) Generate a FE mesh with [GMSH](www.gmsh.info) and use it in Gridap.
-- [GridapMakie](https://github.com/gridap/GridapMakie.jl) Makie plotting recipies for Gridap.
+- [GridapMakie](https://github.com/gridap/GridapMakie.jl) Makie plotting recipes for Gridap.
 - [GridapPardiso](https://github.com/gridap/GridapPardiso.jl) Use the [Intel Pardiso MKL direct sparse solver](https://software.intel.com/en-us/mkl-developer-reference-fortran-intel-mkl-pardiso-parallel-direct-sparse-solver-interface) in Gridap.
 - [GridapPETSc](https://github.com/gridap/GridapPETSc.jl) Use [PETSc](https://petsc.org/) linear and nonlinear solvers in Gridap.
 
@@ -80,7 +80,7 @@ These are some popular PDEs solved with the Gridap library. Examples taken from 
 
 ## Known issues
 
-Since Julia 1.6 ownwards we have noticed large first call latencies of Gridap.jl codes with the default compiler optimization level (i.e., `-O2`).
+Since Julia 1.6 onwards we have noticed large first call latencies of Gridap.jl codes with the default compiler optimization level (i.e., `-O2`).
 In general, while developing code, but specially if you are noting high first call latencies, we recommend to run `julia` with the `-O1` flag. For production runs use `-O2` or `-O3`.  
 
  ## Gridap community
@@ -134,4 +134,4 @@ In order to give credit to the `Gridap` contributors, we simply ask you to cite 
 ## Contact
 
 
-Please, contact the project administrators, [Santiago Badia](mailto:santiago.badia@monash.edu), [Francesc Verdugo](mailto:f.verdugo.rojano@vu.nl), and [Alberto F. Martin](mailto:alberto.martin@monash.edu)  for further questions about licenses and terms of use.
+Please, contact the project administrators, [Santiago Badia](mailto:santiago.badia@monash.edu), [Francesc Verdugo](mailto:f.verdugo.rojano@vu.nl), and [Alberto F. Martin](mailto:alberto.f.martin@anu.edu.au)  for further questions about licenses and terms of use.

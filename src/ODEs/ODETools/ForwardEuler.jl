@@ -51,24 +51,24 @@ end
 
 function residual!(b::AbstractVector,op::ForwardEulerNonlinearOperator,x::AbstractVector)
   vf = op.vf
-  vf = (x-op.u0)/op.dt
+  @. vf = (x-op.u0)/op.dt
   residual!(b,op.odeop,op.tf,(op.u0,vf),op.ode_cache)
 end
 
 function jacobian!(A::AbstractMatrix,op::ForwardEulerNonlinearOperator,x::AbstractVector)
   vf = op.vf
-  vf = (x-op.u0)/op.dt
+  @. vf = (x-op.u0)/op.dt
   z = zero(eltype(A))
   fillstored!(A,z)
   jacobians!(A,op.odeop,op.tf,(op.u0,vf),(0,1/op.dt),op.ode_cache)
 end
 
 function allocate_residual(op::ForwardEulerNonlinearOperator,x::AbstractVector)
-  allocate_residual(op.odeop,x,op.ode_cache)
+  allocate_residual(op.odeop,op.tf,x,op.ode_cache)
 end
 
 function allocate_jacobian(op::ForwardEulerNonlinearOperator,x::AbstractVector)
-  allocate_jacobian(op.odeop,x,op.ode_cache)
+  allocate_jacobian(op.odeop,op.tf,x,op.ode_cache)
 end
 
 function zero_initial_guess(op::ForwardEulerNonlinearOperator)
