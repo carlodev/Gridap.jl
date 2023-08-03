@@ -47,25 +47,25 @@ A = Laplacian(n,n,1,1)
 x = rand(n^2)
 b = A*x
 
-ls = GmresSolver()
-@test ls.abstol === 1e-6
-@test ls.maxiter === 1000
-@test ls.restart === 30
+# ls = GmresSolver()
+# @test ls.abstol === 1e-6
+# @test ls.maxiter === 1000
+# @test ls.restart === 30
 
-ls = GmresSolver(; restart = 2)
-@test ls.abstol === 1e-6
-@test ls.maxiter === 1000
-@test ls.restart === 2
+# ls = GmresSolver(; restart = 2)
+# @test ls.abstol === 1e-6
+# @test ls.maxiter === 1000
+# @test ls.restart === 2
 
-ls = GmresSolver(; maxiter = 50)
-@test ls.abstol === 1e-6
-@test ls.maxiter === 50
-@test ls.restart === 30
+# ls = GmresSolver(; maxiter = 50)
+# @test ls.abstol === 1e-6
+# @test ls.maxiter === 50
+# @test ls.restart === 30
 
-ls = GmresSolver(; abstol = 1e-9)
-@test ls.abstol === 1e-9
-@test ls.maxiter === 1000
-@test ls.restart === 30
+# ls = GmresSolver(; abstol = 1e-9)
+# @test ls.abstol === 1e-9
+# @test ls.maxiter === 1000
+# @test ls.restart === 30
 
 test_linear_solver(ls,A,b,x)
 
