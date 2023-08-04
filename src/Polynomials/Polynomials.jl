@@ -25,7 +25,6 @@ export QGradMonomialBasis
 export QCurlGradMonomialBasis
 export PCurlGradMonomialBasis
 export ModalC0Basis
-export JacobiPolynomialBasis
 export get_exponents
 
 export get_order
@@ -41,7 +40,5 @@ include("QCurlGradMonomialBases.jl")
 include("PCurlGradMonomialBases.jl")
 
 include("ModalC0Bases.jl")
-
-include("JacobiPolynomialBases.jl")
 
 end # module
