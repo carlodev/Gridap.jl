@@ -9,6 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Block assembly now generalised to work with `AbstractBlockArrays`, to include changes in GridapDistributed. Since PR [939](https://github.com/gridap/Gridap.jl/pull/939).
+- Implici-Explicit Runge-Kutta ODE solvers. Since PR [#919](https://github.com/gridap/Gridap.jl/pull/919).
+
+### Fixed
+
+- Using Broadcasting(\circ) instead of \circ in one of the lazy_maps used to transform a coarse field into a fine field. Since PR [#938](https://github.com/gridap/Gridap.jl/pull/938).
+- Better infinite norm computation in `Algebra._check_convergence`. Now works for any `AbstractArray` type, including `PVector`. Since PR [#940](https://github.com/gridap/Gridap.jl/pull/940).
+- Updated Runge-Kutta solver. Since PR [#919](https://github.com/gridap/Gridap.jl/pull/919).
+
+## [0.17.19] - 2023-08-23
+
+### Fixed
+
+- Reimplemented `DomainStyle` for `CellQuadrature` to fix breaking low-level Poisson tutorial. Since PR [#937](https://github.com/gridap/Gridap.jl/pull/937).
+
+## [0.17.18] - 2023-08-15
+
+### Added
+
 - Jacobi polynomial bases. Since PR [#896](https://github.com/gridap/Gridap.jl/pull/896).
 - Replaced newest vertex bisection mesh adaptation in
   `src/Geometry/NewestVertexBisection.jl` with appropriate changes to
@@ -16,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   [#901](https://github.com/gridap/Gridap.jl/pull/901).
 - When refining `DiscreteModels`, the `FaceLabeling` of the resulting `AdaptedDiscreteModel` will now correctly inhering the tags of the parent model. This has been made possible by the addition of the method `get_d_to_face_to_parent_face`. Since PR[#886](https://github.com/gridap/Gridap.jl/pull/886).
 - Added support for mixed adaptivity (i.e coarsening and refining), as well as non-conforming adaptivity. Since PR[#886](https://github.com/gridap/Gridap.jl/pull/886).
+- Added support for block assembly of FE systems. Two new types `BlockMultiFieldStyle` and `BlockSparseMatrixAssemblers` have been added. Since PR[#915](https://github.com/gridap/Gridap.jl/pull/915).
 
 ### Changed
 
