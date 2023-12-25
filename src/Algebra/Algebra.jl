@@ -12,6 +12,7 @@ using LinearAlgebra
 using IterativeSolvers
 using Test
 using SparseMatricesCSR
+using BlockArrays
 
 using Gridap.Helpers
 
